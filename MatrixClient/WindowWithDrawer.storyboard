@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="K0G-2h-di7">
+            <objects>
+                <windowController id="OFA-0y-1LP" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Rl7-yA-45M">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="-1626" y="323" width="480" height="270"/>
+                        <rect key="screenRect" x="-1920" y="0.0" width="1920" height="1080"/>
+                    </window>
+                    <connections>
+                        <segue destination="edm-Ad-r6t" kind="relationship" relationship="window.shadowedContentViewController" id="7SJ-Ma-YZx"/>
+                    </connections>
+                </windowController>
+                <customObject id="pQR-rh-OAe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-148" y="-207"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3e2-Mc-j0R">
+            <objects>
+                <viewController id="edm-Ad-r6t" sceneMemberID="viewController">
+                    <view key="view" id="F3s-c6-1Rx">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcp-gP-xln">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" id="G0p-fY-Nre">
+                                        <rect key="frame" x="0.0" y="0.0" width="242" height="270"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="bEK-w7-qzI">
+                                        <rect key="frame" x="243" y="0.0" width="237" height="270"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="xcp-gP-xln" firstAttribute="leading" secondItem="F3s-c6-1Rx" secondAttribute="leading" id="XGw-In-ksg"/>
+                            <constraint firstItem="xcp-gP-xln" firstAttribute="top" secondItem="F3s-c6-1Rx" secondAttribute="top" id="Zzw-cx-Xdn"/>
+                            <constraint firstAttribute="trailing" secondItem="xcp-gP-xln" secondAttribute="trailing" id="q0w-pX-cBP"/>
+                            <constraint firstAttribute="bottom" secondItem="xcp-gP-xln" secondAttribute="bottom" id="wGZ-aW-ydw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="rYn-b2-AYO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="-207"/>
+        </scene>
+    </scenes>
+</document>

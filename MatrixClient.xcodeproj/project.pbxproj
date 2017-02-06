@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		475674480C5CBA1568E879BA /* Pods_MatrixClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF77E14C4FD9A892D64EE2C0 /* Pods_MatrixClient.framework */; };
+		C63A81F71E300B4A00F44A88 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F31E300B4A00F44A88 /* AFNetworking.framework */; };
+		C63A81F81E300B4A00F44A88 /* MatrixSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F41E300B4A00F44A88 /* MatrixSDK.framework */; };
+		C63A81F91E300B4A00F44A88 /* OLMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F51E300B4A00F44A88 /* OLMKit.framework */; };
+		C63A81FA1E300B4A00F44A88 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F61E300B4A00F44A88 /* Realm.framework */; };
+		C64D49DA1E37D27A006D9B9B /* WindowWithDrawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64D49D91E37D27A006D9B9B /* WindowWithDrawer.storyboard */; };
+		C67872D61E31426F00E67E5D /* SidebarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67872D51E31426F00E67E5D /* SidebarController.swift */; };
+		C69051D21E354DDA0058ECFA /* LoginSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C69051D11E354DDA0058ECFA /* LoginSheet.storyboard */; };
+		C69051D41E354F470058ECFA /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69051D31E354F470058ECFA /* MainSplitViewController.swift */; };
+		C6941FBE1E36A53700464DEA /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6941FBD1E36A53700464DEA /* MainWindowController.swift */; };
+		C6CC8DC71E2A859F006C231F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC8DC61E2A859F006C231F /* AppDelegate.swift */; };
+		C6CC8DC91E2A859F006C231F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC8DC81E2A859F006C231F /* ViewController.swift */; };
+		C6CC8DCB1E2A859F006C231F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6CC8DCA1E2A859F006C231F /* Assets.xcassets */; };
+		C6CC8DCE1E2A859F006C231F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6CC8DCC1E2A859F006C231F /* Main.storyboard */; };
+		C6CC8DD91E2A859F006C231F /* MatrixClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC8DD81E2A859F006C231F /* MatrixClientTests.swift */; };
+		C6DEFE021E36E31D00E15E87 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEFE011E36E31D00E15E87 /* LoginViewController.swift */; };
+		C6E5BDF51E46BA8B001C24BD /* RoundedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5BDF41E46BA8B001C24BD /* RoundedColorView.swift */; };
+		C6E5BDF71E4798EB001C24BD /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5BDF61E4798EB001C24BD /* ImageProvider.swift */; };
+		C6E5BDF91E47D597001C24BD /* MatrixExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5BDF81E47D597001C24BD /* MatrixExtensions.swift */; };
+		EB2E7D22D223D9A1DFD09819 /* Pods_MatrixClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A32E6126D9BC42DCF075D33 /* Pods_MatrixClientTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6CC8DD51E2A859F006C231F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6CC8DBB1E2A859F006C231F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6CC8DC21E2A859F006C231F;
+			remoteInfo = MatrixClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A32E6126D9BC42DCF075D33 /* Pods_MatrixClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatrixClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B7D8B8734A3DDE1AB2BD25EC /* Pods-MatrixClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClient/Pods-MatrixClient.debug.xcconfig"; sourceTree = "<group>"; };
+		B8A3B1364C5392BFC4DA538B /* Pods-MatrixClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClient/Pods-MatrixClient.release.xcconfig"; sourceTree = "<group>"; };
+		C63A81F31E300B4A00F44A88 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../../Library/Developer/Xcode/DerivedData/MatrixClient-bcgobsyfiagdnbbbvzdcmzffkena/Build/Products/Debug/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
+		C63A81F41E300B4A00F44A88 /* MatrixSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MatrixSDK.framework; path = "../../../Library/Developer/Xcode/DerivedData/MatrixClient-bcgobsyfiagdnbbbvzdcmzffkena/Build/Products/Debug/MatrixSDK/MatrixSDK.framework"; sourceTree = "<group>"; };
+		C63A81F51E300B4A00F44A88 /* OLMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OLMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/MatrixClient-bcgobsyfiagdnbbbvzdcmzffkena/Build/Products/Debug/OLMKit/OLMKit.framework"; sourceTree = "<group>"; };
+		C63A81F61E300B4A00F44A88 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Library/Developer/Xcode/DerivedData/MatrixClient-bcgobsyfiagdnbbbvzdcmzffkena/Build/Products/Debug/Realm/Realm.framework"; sourceTree = "<group>"; };
+		C64D49D91E37D27A006D9B9B /* WindowWithDrawer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WindowWithDrawer.storyboard; sourceTree = "<group>"; };
+		C67872D51E31426F00E67E5D /* SidebarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarController.swift; sourceTree = "<group>"; };
+		C69051D11E354DDA0058ECFA /* LoginSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginSheet.storyboard; sourceTree = "<group>"; };
+		C69051D31E354F470058ECFA /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		C6941FBD1E36A53700464DEA /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		C6CC8DC31E2A859F006C231F /* MatrixClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatrixClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6CC8DC61E2A859F006C231F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C6CC8DC81E2A859F006C231F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6CC8DCA1E2A859F006C231F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6CC8DCD1E2A859F006C231F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6CC8DCF1E2A859F006C231F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6CC8DD41E2A859F006C231F /* MatrixClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MatrixClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6CC8DD81E2A859F006C231F /* MatrixClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixClientTests.swift; sourceTree = "<group>"; };
+		C6CC8DDA1E2A859F006C231F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6DEFE011E36E31D00E15E87 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C6E5BDF41E46BA8B001C24BD /* RoundedColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedColorView.swift; sourceTree = "<group>"; };
+		C6E5BDF61E4798EB001C24BD /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		C6E5BDF81E47D597001C24BD /* MatrixExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixExtensions.swift; sourceTree = "<group>"; };
+		DF77E14C4FD9A892D64EE2C0 /* Pods_MatrixClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatrixClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6CC8DC01E2A859F006C231F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C63A81F71E300B4A00F44A88 /* AFNetworking.framework in Frameworks */,
+				C63A81F81E300B4A00F44A88 /* MatrixSDK.framework in Frameworks */,
+				C63A81F91E300B4A00F44A88 /* OLMKit.framework in Frameworks */,
+				C63A81FA1E300B4A00F44A88 /* Realm.framework in Frameworks */,
+				475674480C5CBA1568E879BA /* Pods_MatrixClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6CC8DD11E2A859F006C231F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB2E7D22D223D9A1DFD09819 /* Pods_MatrixClientTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1218F838DE5F4C57EDE9D77F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7D8B8734A3DDE1AB2BD25EC /* Pods-MatrixClient.debug.xcconfig */,
+				B8A3B1364C5392BFC4DA538B /* Pods-MatrixClient.release.xcconfig */,
+				B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */,
+				484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		40D14E7B5393DD736CA9BEBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C63A81F31E300B4A00F44A88 /* AFNetworking.framework */,
+				C63A81F41E300B4A00F44A88 /* MatrixSDK.framework */,
+				C63A81F51E300B4A00F44A88 /* OLMKit.framework */,
+				C63A81F61E300B4A00F44A88 /* Realm.framework */,
+				DF77E14C4FD9A892D64EE2C0 /* Pods_MatrixClient.framework */,
+				3A32E6126D9BC42DCF075D33 /* Pods_MatrixClientTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6CC8DBA1E2A859F006C231F = {
+			isa = PBXGroup;
+			children = (
+				C6CC8DC51E2A859F006C231F /* MatrixClient */,
+				C6CC8DD71E2A859F006C231F /* MatrixClientTests */,
+				C6CC8DC41E2A859F006C231F /* Products */,
+				40D14E7B5393DD736CA9BEBD /* Frameworks */,
+				1218F838DE5F4C57EDE9D77F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		C6CC8DC41E2A859F006C231F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6CC8DC31E2A859F006C231F /* MatrixClient.app */,
+				C6CC8DD41E2A859F006C231F /* MatrixClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6CC8DC51E2A859F006C231F /* MatrixClient */ = {
+			isa = PBXGroup;
+			children = (
+				C6CC8DC61E2A859F006C231F /* AppDelegate.swift */,
+				C6941FBD1E36A53700464DEA /* MainWindowController.swift */,
+				C69051D31E354F470058ECFA /* MainSplitViewController.swift */,
+				C6CC8DC81E2A859F006C231F /* ViewController.swift */,
+				C6E5BDF41E46BA8B001C24BD /* RoundedColorView.swift */,
+				C67872D51E31426F00E67E5D /* SidebarController.swift */,
+				C6DEFE011E36E31D00E15E87 /* LoginViewController.swift */,
+				C6CC8DCA1E2A859F006C231F /* Assets.xcassets */,
+				C6CC8DCC1E2A859F006C231F /* Main.storyboard */,
+				C69051D11E354DDA0058ECFA /* LoginSheet.storyboard */,
+				C6CC8DCF1E2A859F006C231F /* Info.plist */,
+				C64D49D91E37D27A006D9B9B /* WindowWithDrawer.storyboard */,
+				C6E5BDF61E4798EB001C24BD /* ImageProvider.swift */,
+				C6E5BDF81E47D597001C24BD /* MatrixExtensions.swift */,
+			);
+			path = MatrixClient;
+			sourceTree = "<group>";
+		};
+		C6CC8DD71E2A859F006C231F /* MatrixClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6CC8DD81E2A859F006C231F /* MatrixClientTests.swift */,
+				C6CC8DDA1E2A859F006C231F /* Info.plist */,
+			);
+			path = MatrixClientTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6CC8DC21E2A859F006C231F /* MatrixClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6CC8DDD1E2A859F006C231F /* Build configuration list for PBXNativeTarget "MatrixClient" */;
+			buildPhases = (
+				666C399D95F8A2D732348891 /* [CP] Check Pods Manifest.lock */,
+				C6CC8DBF1E2A859F006C231F /* Sources */,
+				C6CC8DC01E2A859F006C231F /* Frameworks */,
+				C6CC8DC11E2A859F006C231F /* Resources */,
+				D54A2D317D83B60E84155270 /* [CP] Embed Pods Frameworks */,
+				E56BFBFDCCC8536A81D6BDF5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatrixClient;
+			productName = MatrixClient;
+			productReference = C6CC8DC31E2A859F006C231F /* MatrixClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C6CC8DD31E2A859F006C231F /* MatrixClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6CC8DE01E2A859F006C231F /* Build configuration list for PBXNativeTarget "MatrixClientTests" */;
+			buildPhases = (
+				A253536108EAFF9AB2521EC7 /* [CP] Check Pods Manifest.lock */,
+				C6CC8DD01E2A859F006C231F /* Sources */,
+				C6CC8DD11E2A859F006C231F /* Frameworks */,
+				C6CC8DD21E2A859F006C231F /* Resources */,
+				D46AF535DFA0861C8535AEF3 /* [CP] Embed Pods Frameworks */,
+				4248D3EF143F58A814081DE3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6CC8DD61E2A859F006C231F /* PBXTargetDependency */,
+			);
+			name = MatrixClientTests;
+			productName = MatrixClientTests;
+			productReference = C6CC8DD41E2A859F006C231F /* MatrixClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6CC8DBB1E2A859F006C231F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Avery Pierce";
+				TargetAttributes = {
+					C6CC8DC21E2A859F006C231F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BU7LJXTUEW;
+						ProvisioningStyle = Automatic;
+					};
+					C6CC8DD31E2A859F006C231F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = BU7LJXTUEW;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C6CC8DC21E2A859F006C231F;
+					};
+				};
+			};
+			buildConfigurationList = C6CC8DBE1E2A859F006C231F /* Build configuration list for PBXProject "MatrixClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C6CC8DBA1E2A859F006C231F;
+			productRefGroup = C6CC8DC41E2A859F006C231F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6CC8DC21E2A859F006C231F /* MatrixClient */,
+				C6CC8DD31E2A859F006C231F /* MatrixClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6CC8DC11E2A859F006C231F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6CC8DCB1E2A859F006C231F /* Assets.xcassets in Resources */,
+				C6CC8DCE1E2A859F006C231F /* Main.storyboard in Resources */,
+				C69051D21E354DDA0058ECFA /* LoginSheet.storyboard in Resources */,
+				C64D49DA1E37D27A006D9B9B /* WindowWithDrawer.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6CC8DD21E2A859F006C231F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4248D3EF143F58A814081DE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		666C399D95F8A2D732348891 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A253536108EAFF9AB2521EC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D46AF535DFA0861C8535AEF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D54A2D317D83B60E84155270 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MatrixClient/Pods-MatrixClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E56BFBFDCCC8536A81D6BDF5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MatrixClient/Pods-MatrixClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6CC8DBF1E2A859F006C231F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6DEFE021E36E31D00E15E87 /* LoginViewController.swift in Sources */,
+				C6E5BDF91E47D597001C24BD /* MatrixExtensions.swift in Sources */,
+				C6E5BDF51E46BA8B001C24BD /* RoundedColorView.swift in Sources */,
+				C69051D41E354F470058ECFA /* MainSplitViewController.swift in Sources */,
+				C6CC8DC91E2A859F006C231F /* ViewController.swift in Sources */,
+				C6E5BDF71E4798EB001C24BD /* ImageProvider.swift in Sources */,
+				C67872D61E31426F00E67E5D /* SidebarController.swift in Sources */,
+				C6CC8DC71E2A859F006C231F /* AppDelegate.swift in Sources */,
+				C6941FBE1E36A53700464DEA /* MainWindowController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6CC8DD01E2A859F006C231F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6CC8DD91E2A859F006C231F /* MatrixClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6CC8DD61E2A859F006C231F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6CC8DC21E2A859F006C231F /* MatrixClient */;
+			targetProxy = C6CC8DD51E2A859F006C231F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C6CC8DCC1E2A859F006C231F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6CC8DCD1E2A859F006C231F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6CC8DDB1E2A859F006C231F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C6CC8DDC1E2A859F006C231F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		C6CC8DDE1E2A859F006C231F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7D8B8734A3DDE1AB2BD25EC /* Pods-MatrixClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = BU7LJXTUEW;
+				INFOPLIST_FILE = MatrixClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.MatrixClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C6CC8DDF1E2A859F006C231F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8A3B1364C5392BFC4DA538B /* Pods-MatrixClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = BU7LJXTUEW;
+				INFOPLIST_FILE = MatrixClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.MatrixClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C6CC8DE11E2A859F006C231F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = BU7LJXTUEW;
+				INFOPLIST_FILE = MatrixClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.MatrixClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MatrixClient.app/Contents/MacOS/MatrixClient";
+			};
+			name = Debug;
+		};
+		C6CC8DE21E2A859F006C231F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = BU7LJXTUEW;
+				INFOPLIST_FILE = MatrixClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.averypierce.MatrixClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MatrixClient.app/Contents/MacOS/MatrixClient";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6CC8DBE1E2A859F006C231F /* Build configuration list for PBXProject "MatrixClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CC8DDB1E2A859F006C231F /* Debug */,
+				C6CC8DDC1E2A859F006C231F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6CC8DDD1E2A859F006C231F /* Build configuration list for PBXNativeTarget "MatrixClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CC8DDE1E2A859F006C231F /* Debug */,
+				C6CC8DDF1E2A859F006C231F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6CC8DE01E2A859F006C231F /* Build configuration list for PBXNativeTarget "MatrixClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6CC8DE11E2A859F006C231F /* Debug */,
+				C6CC8DE21E2A859F006C231F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6CC8DBB1E2A859F006C231F /* Project object */;
+}

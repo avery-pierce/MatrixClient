@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="pmQ-Hq-lWY">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="MhS-mg-5Wt">
+            <objects>
+                <windowController id="pmQ-Hq-lWY" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="rWt-LU-tl2">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="461" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                    </window>
+                    <connections>
+                        <segue destination="7Db-O0-c10" kind="relationship" relationship="window.shadowedContentViewController" id="K1L-IP-AZt"/>
+                    </connections>
+                </windowController>
+                <customObject id="0Hn-px-Sht" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-200" y="-49"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="CRo-IN-Pdm">
+            <objects>
+                <viewController id="7Db-O0-c10" customClass="LoginViewController" customModule="MatrixClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="WVi-ff-TCC">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="242"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PeI-AF-Fw2">
+                                <rect key="frame" x="372" y="13" width="74" height="32"/>
+                                <buttonCell key="cell" type="push" title="Login" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="38P-uK-nGT">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="submitLogin:" target="7Db-O0-c10" id="7nm-gs-Irv"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-pm-SXc">
+                                <rect key="frame" x="40" y="176" width="400" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="8tp-Kx-iyq"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="https://matrix.org" drawsBackground="YES" id="R7F-wK-tyt">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9t-Lr-Zwc">
+                                <rect key="frame" x="38" y="211" width="49" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Server" id="ick-Pb-0Tg">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-gh-k1u">
+                                <rect key="frame" x="40" y="92" width="400" height="27"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="username" drawsBackground="YES" id="fvg-op-w6R">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <secureTextField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ5-ep-RoB">
+                                <rect key="frame" x="40" y="61" width="400" height="27"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="password" drawsBackground="YES" usesSingleLineMode="YES" id="mU8-lO-aF1">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsX-zv-bLG">
+                                <rect key="frame" x="38" y="127" width="61" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Account" id="0St-9H-igi">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="lWp-h4-yzy">
+                                <rect key="frame" x="326" y="15" width="32" height="32"/>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="eIw-pm-SXc" firstAttribute="centerX" secondItem="WVi-ff-TCC" secondAttribute="centerX" id="0Kq-L6-zAa"/>
+                            <constraint firstItem="eIw-pm-SXc" firstAttribute="trailing" secondItem="jDE-gh-k1u" secondAttribute="trailing" id="2Ja-gN-zpV"/>
+                            <constraint firstItem="eZ5-ep-RoB" firstAttribute="top" secondItem="jDE-gh-k1u" secondAttribute="bottom" constant="4" id="5lz-fr-NvC"/>
+                            <constraint firstItem="PeI-AF-Fw2" firstAttribute="top" secondItem="eZ5-ep-RoB" secondAttribute="bottom" constant="20" id="BDp-wk-qiY"/>
+                            <constraint firstItem="TsX-zv-bLG" firstAttribute="leading" secondItem="jDE-gh-k1u" secondAttribute="leading" id="BXh-Zu-duf"/>
+                            <constraint firstItem="eZ5-ep-RoB" firstAttribute="trailing" secondItem="jDE-gh-k1u" secondAttribute="trailing" id="CT3-Cf-oKO"/>
+                            <constraint firstItem="lWp-h4-yzy" firstAttribute="centerY" secondItem="PeI-AF-Fw2" secondAttribute="centerY" id="Hgm-Vr-Vi2"/>
+                            <constraint firstAttribute="bottom" secondItem="PeI-AF-Fw2" secondAttribute="bottom" constant="20" id="I9a-r5-8Gy"/>
+                            <constraint firstItem="PeI-AF-Fw2" firstAttribute="leading" secondItem="lWp-h4-yzy" secondAttribute="trailing" constant="20" id="Sl6-CF-txY"/>
+                            <constraint firstItem="eIw-pm-SXc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WVi-ff-TCC" secondAttribute="leading" constant="40" id="UNB-Pf-Njl"/>
+                            <constraint firstItem="eZ5-ep-RoB" firstAttribute="leading" secondItem="jDE-gh-k1u" secondAttribute="leading" id="WRD-8i-RfD"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eIw-pm-SXc" secondAttribute="trailing" constant="40" id="b77-WT-Lbg"/>
+                            <constraint firstItem="TsX-zv-bLG" firstAttribute="top" secondItem="eIw-pm-SXc" secondAttribute="bottom" constant="30" id="c2r-6m-fpP"/>
+                            <constraint firstItem="z9t-Lr-Zwc" firstAttribute="top" secondItem="WVi-ff-TCC" secondAttribute="top" constant="12" id="d0p-Q8-5T1"/>
+                            <constraint firstItem="jDE-gh-k1u" firstAttribute="leading" secondItem="eIw-pm-SXc" secondAttribute="leading" id="eBq-Kk-cFp"/>
+                            <constraint firstItem="z9t-Lr-Zwc" firstAttribute="leading" secondItem="eIw-pm-SXc" secondAttribute="leading" id="lkC-Ff-4xV"/>
+                            <constraint firstItem="eIw-pm-SXc" firstAttribute="top" secondItem="z9t-Lr-Zwc" secondAttribute="bottom" constant="8" id="msn-Kh-X8M"/>
+                            <constraint firstItem="jDE-gh-k1u" firstAttribute="top" secondItem="TsX-zv-bLG" secondAttribute="bottom" constant="8" id="p5v-S3-Qqr"/>
+                            <constraint firstItem="PeI-AF-Fw2" firstAttribute="trailing" secondItem="eZ5-ep-RoB" secondAttribute="trailing" id="zf0-9B-I0y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="eIw-pm-SXc" id="c54-Bd-ku7"/>
+                        <outlet property="loginButton" destination="PeI-AF-Fw2" id="NRT-7f-Hhc"/>
+                        <outlet property="passwordTextField" destination="eZ5-ep-RoB" id="vVE-hM-7XC"/>
+                        <outlet property="progressIndicator" destination="lWp-h4-yzy" id="gbc-Gr-8uA"/>
+                        <outlet property="usernameTextField" destination="jDE-gh-k1u" id="46v-Us-w8m"/>
+                    </connections>
+                </viewController>
+                <customObject id="Dvl-BA-rvV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="432" y="-49"/>
+        </scene>
+    </scenes>
+</document>
