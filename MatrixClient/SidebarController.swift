@@ -101,8 +101,22 @@ class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineVie
             }
         case let item as MXRoom:
             let roomCellView = outlineView.make(withIdentifier: "DataCell", owner: self) as? RoomCellView
-            roomCellView?.titleTextField?.stringValue = item.state.name
-            roomCellView?.detailTextField?.stringValue = item.state.canonicalAlias
+
+            if let canonicalAlias = item.state.canonicalAlias {
+                roomCellView?.detailTextField?.stringValue = canonicalAlias
+            } else {
+                roomCellView?.detailTextField?.stringValue = item.state.roomId
+            }
+
+            if let name = item.state.name {
+                roomCellView?.titleTextField?.stringValue = name
+            } else {
+                if let canonicalAlias = item.state.canonicalAlias {
+                    roomCellView?.titleTextField?.stringValue = canonicalAlias
+                } else {
+                    roomCellView?.titleTextField?.stringValue = "Unnamed Room"
+                }
+            }
             
             if  let avatarString = item.state.avatar,
                 let avatarUrl = URL(string: avatarString)?.resolvingMatrixUrl() {
