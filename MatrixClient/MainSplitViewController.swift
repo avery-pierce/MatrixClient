@@ -9,7 +9,7 @@
 import Cocoa
 import MatrixSDK
 
-class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegate {
+class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegate, MatrixSessionManagerDelegate {
 
     var loginWindow: NSWindow?
     
@@ -17,11 +17,13 @@ class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
     }
     
-    
     override func viewDidAppear() {
+        presentLoginSheetIfNeeded()
+    }
+    
+    func presentLoginSheetIfNeeded() {
         
         if MatrixSessionManager.shared.state == .notStarted {
             MatrixSessionManager.shared.start()
@@ -45,5 +47,14 @@ class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegat
         
         MatrixSessionManager.shared.credentials = credentials
         MatrixSessionManager.shared.start()
+    }
+    
+    func logout(_ sender: Any? = nil) {
+        MatrixSessionManager.shared.logout()
+    }
+    
+    func matrixDidStart(_ session: MXSession) {}
+    func matrixDidLogout() {
+        self.presentLoginSheetIfNeeded()
     }
 }

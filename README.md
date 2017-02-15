@@ -1,7 +1,9 @@
 Matrix Client for macOS (working title)
 =======================================
 
-![Screenshot](http://i.imgur.com/m1GJ4yp.png)
+This application is still in very early development.
+
+![Screenshot](http://i.imgur.com/X1AUxHa.png)
 
 Build and run
 -------------

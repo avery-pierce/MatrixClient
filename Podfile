@@ -9,7 +9,7 @@ target 'MatrixClient' do
   pod 'OLMKit'
   pod 'Realm'
 #  pod 'MatrixSDK', :path => '../matrix-ios-sdk'
-  pod 'MatrixSDK', :git => 'https://github.com/aapierce0/matrix-ios-sdk.git', :commit => '0f852f0b06ce5f0e8ded3afdf57b0c16c960b213'
+  pod 'MatrixSDK', :git => 'https://github.com/aapierce0/matrix-ios-sdk.git', :commit => '01b7da359f526ffe2a7e5a6a6f0ee99c1cacd94a'
 
   target 'MatrixClientTests' do
     inherit! :search_paths

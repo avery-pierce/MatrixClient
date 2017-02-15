@@ -11,10 +11,13 @@ import MatrixSDK
 
 protocol MatrixSessionManagerDelegate {
     func matrixDidStart(_ session: MXSession)
+    func matrixDidLogout()
 }
 
 class MatrixSessionManager {
     static let shared = MatrixSessionManager()
+    
+    static let credentialsDictionaryKey = "MatrixCredentials"
     
     enum State {
         case needsCredentials, notStarted, starting, started
@@ -49,7 +52,7 @@ class MatrixSessionManager {
     init() {
         
         // Make sure that someone is logged in.
-        if  let savedCredentials = UserDefaults.standard.dictionary(forKey: "MatrixCredentials"),
+        if  let savedCredentials = UserDefaults.standard.dictionary(forKey: MatrixSessionManager.credentialsDictionaryKey),
             let homeServer = savedCredentials["homeServer"] as? String,
             let userId = savedCredentials["userId"] as? String,
             let token = savedCredentials["token"] as? String {
@@ -71,20 +74,36 @@ class MatrixSessionManager {
         state = .starting
         
         let fileStore = MXFileStore()
-        session?.setStore(fileStore, success: {
+        session?.setStore(fileStore) { response in
+            if case .failure(let error) = response {
+                print("An error occurred setting the store: \(error)")
+                return
+            }
             
             self.state = .starting
-            self.session?.start({
+            self.session?.start { response in
+                guard response.isSuccess else { return }
+                
                 DispatchQueue.main.async {
                     self.delegate?.matrixDidStart(self.session!);
                     self.state = .started
                 }
-            }, failure: { (error) in
-                print("An Error occurred getting the rooms!", error ?? "null")
-            })
+            }
+        }
+    }
+    
+    func logout() {
+        
+        print("Logging out!")
+        
+        session?.logout { _ in
+            UserDefaults.standard.removeObject(forKey: MatrixSessionManager.credentialsDictionaryKey)
+            UserDefaults.standard.synchronize()
             
-        }) { (error) in
-            print("An error occurred setting the store", error ?? "null")
+            self.credentials = nil
+            self.state = .needsCredentials
+            
+            self.delegate?.matrixDidLogout()
         }
     }
 }
@@ -109,6 +128,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, MatrixSessionManagerDelegate
         
         allViewControllers.flatMap({ return $0 as? MatrixSessionManagerDelegate }).forEach { (delegate) in
             delegate.matrixDidStart(session)
+        }
+    }
+    
+    func matrixDidLogout() {
+        let allViewControllers = NSApplication.shared().windows.flatMap({ return $0.descendentViewControllers })
+        
+        allViewControllers.flatMap({ return $0 as? MatrixSessionManagerDelegate }).forEach { (delegate) in
+            delegate.matrixDidLogout()
         }
     }
 }

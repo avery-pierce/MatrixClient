@@ -109,6 +109,14 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
         
     }
     
+    func matrixDidLogout() {
+        roomMessages = []
+        currentRoom?.liveTimeline.removeAllListeners()
+        currentRoom = nil
+        
+        tableView.reloadData()
+    }
+    
 
     func roomChanger(_ changer: SidebarController, setRoom room: MXRoom) {
         currentRoom = room
@@ -117,15 +125,16 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
         sortedRoomMessages = []
         
         room.liveTimeline.resetPagination()
-        room.liveTimeline.listen(toEventsOfTypes: [kMXEventTypeStringRoomMessage]) { (event, direction, roomState) in
-            guard let event = event else { return }
+        _ = room.liveTimeline.listenToEvents([.roomMessage]) { (event, direction, roomState) in
             
             // Check to see if the scroll view is scrolled to the bottom
             self.roomMessages.append(MatrixMessage(event: event))
             self.tableView.reloadData()
             self.scrollView.documentView?.scrollToEndOfDocument(self)
         }
-        room.liveTimeline.listen { (event, directoin, roomState) in
+        
+        _ = room.liveTimeline.listenToEvents([.typing]) { (event, direction, roomState) in
+            
             let typingUsers = room.typingUsers ?? []
             if typingUsers.count > 0 {
                 self.typingLabel.stringValue = "Typing: \(typingUsers.joined(separator: ", "))"
@@ -133,11 +142,9 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
                 self.typingLabel.stringValue = ""
             }
         }
-
-        room.liveTimeline.paginate(30, direction: MXTimelineDirectionBackwards, onlyFromStore: false, complete: {
-            print("complete")
-        }) { (_) in
-            print("error")
+        
+        room.liveTimeline.paginate(10, direction: .backwards, onlyFromStore: false) { response in
+            
         }
     }
 

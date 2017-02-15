@@ -105,6 +105,13 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
+                                        <menuItem title="Logout..." id="Ton-6z-koA">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="logout:" target="Ady-hI-5gd" id="iQ5-1V-5gv"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="lAb-s3-Xw0"/>
                                         <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
@@ -663,7 +670,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="MatrixClient" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -1052,21 +1059,21 @@
         <scene sceneID="Pup-UV-QCr">
             <objects>
                 <viewController id="kq4-xJ-Cft" customClass="SidebarController" customModule="MatrixClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Dmw-Ty-T01">
+                    <view key="view" wantsLayer="YES" id="Dmw-Ty-T01">
                         <rect key="frame" x="0.0" y="0.0" width="251" height="430"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="bWd-Rh-R3A">
+                            <visualEffectView blendingMode="behindWindow" material="sidebar" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="bWd-Rh-R3A">
                                 <rect key="frame" x="0.0" y="0.0" width="251" height="430"/>
                                 <subviews>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="40" horizontalPageScroll="10" verticalLineScroll="40" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyS-hj-Jqo">
-                                        <rect key="frame" x="0.0" y="0.0" width="251" height="430"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="251" height="373"/>
                                         <clipView key="contentView" drawsBackground="NO" id="rqr-uW-BaA">
-                                            <rect key="frame" x="0.0" y="0.0" width="251" height="430"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="251" height="373"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="38" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="zFj-fY-gAS" id="A6n-HZ-OCD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="251" height="430"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="251" height="373"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1172,12 +1179,44 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="GX5-PG-IjK">
+                                        <rect key="frame" x="0.0" y="373" width="251" height="57"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="efI-Xk-adm">
+                                                <rect key="frame" x="124" y="1" width="125" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Create Room" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fmp-oY-qto">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKe-dl-Wvs">
+                                                <rect key="frame" x="2" y="1" width="126" height="32"/>
+                                                <buttonCell key="cell" type="push" title="Join Room" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rCp-YD-Mg3">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="efI-Xk-adm" secondAttribute="trailing" constant="8" id="217-lk-Bvp"/>
+                                            <constraint firstItem="YKe-dl-Wvs" firstAttribute="leading" secondItem="GX5-PG-IjK" secondAttribute="leading" constant="8" id="FBF-nG-rHd"/>
+                                            <constraint firstAttribute="height" constant="57" id="IJj-ob-BVa"/>
+                                            <constraint firstItem="YKe-dl-Wvs" firstAttribute="centerY" secondItem="efI-Xk-adm" secondAttribute="centerY" id="MGa-TZ-C2b"/>
+                                            <constraint firstItem="efI-Xk-adm" firstAttribute="leading" secondItem="YKe-dl-Wvs" secondAttribute="trailing" constant="8" id="PAZ-0n-uXx"/>
+                                            <constraint firstAttribute="bottom" secondItem="efI-Xk-adm" secondAttribute="bottom" constant="8" id="PuD-l7-bdy"/>
+                                            <constraint firstItem="YKe-dl-Wvs" firstAttribute="width" secondItem="efI-Xk-adm" secondAttribute="width" id="rcs-Su-wN3"/>
+                                        </constraints>
+                                    </customView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nyS-hj-Jqo" firstAttribute="leading" secondItem="bWd-Rh-R3A" secondAttribute="leading" id="Ezg-SI-8OG"/>
                                     <constraint firstAttribute="bottom" secondItem="nyS-hj-Jqo" secondAttribute="bottom" id="FxU-2E-0M7"/>
-                                    <constraint firstItem="nyS-hj-Jqo" firstAttribute="top" secondItem="bWd-Rh-R3A" secondAttribute="top" id="cpV-an-5uI"/>
+                                    <constraint firstItem="GX5-PG-IjK" firstAttribute="top" secondItem="bWd-Rh-R3A" secondAttribute="top" id="GL9-Yd-ezA"/>
+                                    <constraint firstItem="nyS-hj-Jqo" firstAttribute="top" secondItem="GX5-PG-IjK" secondAttribute="bottom" id="Skb-ep-cJq"/>
+                                    <constraint firstItem="GX5-PG-IjK" firstAttribute="leading" secondItem="bWd-Rh-R3A" secondAttribute="leading" id="ZME-o9-9DC"/>
+                                    <constraint firstAttribute="trailing" secondItem="GX5-PG-IjK" secondAttribute="trailing" id="b0l-1r-Gi8"/>
                                     <constraint firstAttribute="trailing" secondItem="nyS-hj-Jqo" secondAttribute="trailing" id="pND-Jy-PZt"/>
+                                    <constraint firstItem="GX5-PG-IjK" firstAttribute="centerX" secondItem="bWd-Rh-R3A" secondAttribute="centerX" id="uEV-Xm-H0G"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>

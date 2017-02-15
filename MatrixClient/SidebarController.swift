@@ -53,11 +53,14 @@ class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineVie
     
     
     func matrixDidStart(_ session: MXSession) {
-        
-        self.rooms = session.rooms() ?? []
+        self.rooms = session.rooms
         outlineView.reloadData()
     }
     
+    func matrixDidLogout() {
+        self.rooms = []
+        outlineView.reloadData()
+    }
     
 
     

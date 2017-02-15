@@ -541,7 +541,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BU7LJXTUEW;
@@ -558,7 +557,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BU7LJXTUEW;
