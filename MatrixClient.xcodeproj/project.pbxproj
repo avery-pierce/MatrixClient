@@ -154,16 +154,16 @@
 				C6E5BDF41E46BA8B001C24BD /* RoundedColorView.swift */,
 				C67872D51E31426F00E67E5D /* SidebarController.swift */,
 				C6DEFE011E36E31D00E15E87 /* LoginViewController.swift */,
+				C6E5BDF61E4798EB001C24BD /* ImageProvider.swift */,
+				C6E5BDF81E47D597001C24BD /* MatrixExtensions.swift */,
+				C60805801E54E6E9005387D3 /* CreateRoomViewController.swift */,
+				C60805841E551211005387D3 /* JoinRoomViewController.swift */,
 				C6CC8DCA1E2A859F006C231F /* Assets.xcassets */,
 				C6CC8DCC1E2A859F006C231F /* Main.storyboard */,
 				C683F4971E54DA3600F8D19B /* RoomManagement.storyboard */,
 				C69051D11E354DDA0058ECFA /* LoginSheet.storyboard */,
 				C6CC8DCF1E2A859F006C231F /* Info.plist */,
 				C64D49D91E37D27A006D9B9B /* WindowWithDrawer.storyboard */,
-				C6E5BDF61E4798EB001C24BD /* ImageProvider.swift */,
-				C6E5BDF81E47D597001C24BD /* MatrixExtensions.swift */,
-				C60805801E54E6E9005387D3 /* CreateRoomViewController.swift */,
-				C60805841E551211005387D3 /* JoinRoomViewController.swift */,
 			);
 			path = MatrixClient;
 			sourceTree = "<group>";
