@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -708,7 +709,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" rowSizeStyle="automatic" viewBased="YES" id="bGT-52-4yq">
-                                            <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="480" height="318"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -982,6 +983,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="7EF-sa-Bja"/>
                                 </constraints>
+                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="60" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1t9-oq-AHu">
                                     <rect key="frame" x="0.0" y="362" width="320" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1010,6 +1012,28 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="GGU-lj-xCh">
+                                <rect key="frame" x="0.0" y="373" width="480" height="57"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caP-XX-Ths">
+                                        <rect key="frame" x="216" y="28" width="48" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="C8p-fo-FhZ">
+                                            <font key="font" metaFont="systemSemibold" size="17"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="ARb-75-2NO"/>
+                                    <constraint firstItem="caP-XX-Ths" firstAttribute="top" secondItem="GGU-lj-xCh" secondAttribute="top" constant="8" id="Cjy-MG-H33"/>
+                                    <constraint firstItem="caP-XX-Ths" firstAttribute="centerX" secondItem="GGU-lj-xCh" secondAttribute="centerX" id="leS-nR-tMf"/>
+                                </constraints>
+                                <shadow key="shadow">
+                                    <size key="offset" width="0.0" height="-1"/>
+                                    <color key="color" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                </shadow>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="4n3-cu-i2f" firstAttribute="top" secondItem="qJe-6y-3Tj" secondAttribute="bottom" constant="4" id="D7N-Vj-1FR"/>
@@ -1017,16 +1041,21 @@
                             <constraint firstAttribute="bottom" secondItem="4n3-cu-i2f" secondAttribute="bottom" constant="8" id="ETH-n0-hPD"/>
                             <constraint firstItem="MIh-nR-RXk" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Iqw-aS-Aap"/>
                             <constraint firstItem="qJe-6y-3Tj" firstAttribute="top" secondItem="MIh-nR-RXk" secondAttribute="bottom" constant="4" id="JVL-RD-6pd"/>
+                            <constraint firstAttribute="trailing" secondItem="GGU-lj-xCh" secondAttribute="trailing" id="ZVS-Ga-0xf"/>
+                            <constraint firstItem="GGU-lj-xCh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="ciU-05-qye"/>
                             <constraint firstItem="4n3-cu-i2f" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="gVP-AM-tDr"/>
                             <constraint firstItem="MIh-nR-RXk" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="qby-q7-ZCc"/>
                             <constraint firstItem="qJe-6y-3Tj" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4n3-cu-i2f" secondAttribute="trailing" id="sx8-cC-E8l"/>
+                            <constraint firstItem="GGU-lj-xCh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="u6G-Kx-7zi"/>
                             <constraint firstAttribute="trailing" secondItem="4n3-cu-i2f" secondAttribute="trailing" constant="20" id="uXi-ZA-T2Z"/>
                             <constraint firstItem="qJe-6y-3Tj" firstAttribute="leading" secondItem="4n3-cu-i2f" secondAttribute="leading" id="xAq-7Q-aKI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="messageTextField" destination="4n3-cu-i2f" id="YN9-xI-lEi"/>
                         <outlet property="scrollView" destination="MIh-nR-RXk" id="f2U-Kz-43z"/>
                         <outlet property="tableView" destination="bGT-52-4yq" id="u4X-33-yB6"/>
+                        <outlet property="titleLabel" destination="caP-XX-Ths" id="xKC-yk-XdM"/>
                         <outlet property="typingLabel" destination="qJe-6y-3Tj" id="7nA-bV-1Et"/>
                     </connections>
                 </viewController>
@@ -1162,6 +1191,7 @@
                                                     <connections>
                                                         <outlet property="dataSource" destination="kq4-xJ-Cft" id="IAT-hG-S8p"/>
                                                         <outlet property="delegate" destination="kq4-xJ-Cft" id="01B-UK-jSG"/>
+                                                        <outlet property="menu" destination="ohc-Nc-c5j" id="Zai-KB-BZ3"/>
                                                     </connections>
                                                 </outlineView>
                                             </subviews>
@@ -1184,17 +1214,23 @@
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="efI-Xk-adm">
                                                 <rect key="frame" x="124" y="1" width="125" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Create Room" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fmp-oY-qto">
+                                                <buttonCell key="cell" type="push" title="Create Room" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fmp-oY-qto">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="createRoom:" target="kq4-xJ-Cft" id="83L-94-xAD"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKe-dl-Wvs">
                                                 <rect key="frame" x="2" y="1" width="126" height="32"/>
-                                                <buttonCell key="cell" type="push" title="Join Room" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rCp-YD-Mg3">
+                                                <buttonCell key="cell" type="push" title="Join Room" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rCp-YD-Mg3">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="joinRoom:" target="kq4-xJ-Cft" id="TZV-Iu-Ggr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1232,8 +1268,18 @@
                     </connections>
                 </viewController>
                 <customObject id="fzx-mn-Rgv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="ohc-Nc-c5j">
+                    <items>
+                        <menuItem title="Leave Room" id="zMD-Zb-AoQ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="leaveRoom:" target="fzx-mn-Rgv" id="ahh-am-Awl"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="517.5" y="1240"/>
+            <point key="canvasLocation" x="494" y="1240"/>
         </scene>
     </scenes>
 </document>

@@ -32,7 +32,7 @@ class RoomCellView : NSTableCellView {
     func roomChanger(_ changer: SidebarController, setRoom room: MXRoom)
 }
 
-class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate, MatrixSessionManagerDelegate {
+class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineViewDelegate, MatrixSessionManagerDelegate, CreateRoomViewControllerDelegate, JoinRoomViewControllerDelegate, NSMenuDelegate {
     
     @IBOutlet weak var outlineView: NSOutlineView!
     weak var roomChangedDelegate: RoomChangedDelegate?
@@ -105,21 +105,8 @@ class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineVie
         case let item as MXRoom:
             let roomCellView = outlineView.make(withIdentifier: "DataCell", owner: self) as? RoomCellView
 
-            if let canonicalAlias = item.state.canonicalAlias {
-                roomCellView?.detailTextField?.stringValue = canonicalAlias
-            } else {
-                roomCellView?.detailTextField?.stringValue = item.state.roomId
-            }
-
-            if let name = item.state.name {
-                roomCellView?.titleTextField?.stringValue = name
-            } else {
-                if let canonicalAlias = item.state.canonicalAlias {
-                    roomCellView?.titleTextField?.stringValue = canonicalAlias
-                } else {
-                    roomCellView?.titleTextField?.stringValue = "Unnamed Room"
-                }
-            }
+            roomCellView?.detailTextField?.stringValue = item.state.canonicalAlias ?? item.state.roomId
+            roomCellView?.titleTextField?.stringValue = item.state.name ?? item.state.canonicalAlias ?? "Unnamed Room"
             
             if  let avatarString = item.state.avatar,
                 let avatarUrl = URL(string: avatarString)?.resolvingMatrixUrl() {
@@ -154,4 +141,106 @@ class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineVie
         roomChangedDelegate?.roomChanger(self, setRoom: room)
         return true
     }
+    
+    
+    
+    
+    // MARK: - Create Room Sheet
+    
+    @IBAction func createRoom(_ sender: NSButton? = nil) {
+        
+        // Initialize the create room sheet, and become its delegate
+        let roomStoryboard = NSStoryboard(name: "RoomManagement", bundle: nil)
+        guard
+            let parentWindow = self.view.window,
+            let roomWindowController = roomStoryboard.instantiateController(withIdentifier: "CreateRoomWindowController") as? NSWindowController,
+            let roomWindow = roomWindowController.window,
+            let roomViewController = roomWindowController.contentViewController as? CreateRoomViewController
+        else { return }
+        roomViewController.delegate = self
+        
+        // Present the create room sheet
+        parentWindow.beginSheet(roomWindow, completionHandler: nil)
+    }
+    
+    
+    func createRoomViewControllerDidCancel(_ sender: CreateRoomViewController) {
+        if let sheetWindow = sender.view.window {
+            self.view.window?.endSheet(sheetWindow)
+        }
+    }
+    
+    func createRoomViewControllerDidSubmit(_ sender: CreateRoomViewController) {
+        MatrixSessionManager.shared.session?.createRoom(name: sender.roomName, visibility: sender.roomVisibility, alias: sender.roomAlias, topic: nil, preset: .publicChat) { response in
+            switch response {
+            case .success(let room):
+                self.rooms.append(room)
+                guard let index = self.rooms.index(of: room) else { return }
+                self.outlineView.insertItems(at: IndexSet(integer: index), inParent: Section.rooms, withAnimation: NSTableViewAnimationOptions.slideLeft)
+            default: break
+            }
+            
+            if let sheetWindow = sender.view.window {
+                self.view.window?.endSheet(sheetWindow)
+            }
+        }
+    }
+    
+    
+    
+    @IBAction func leaveRoom(_ sender: Any) {
+        guard let room = self.outlineView.item(atRow: outlineView.clickedRow) as? MXRoom else { return }
+        MatrixSessionManager.shared.session?.leaveRoom(room.roomId) { response in
+            guard response.isSuccess else { return }
+            
+            // Get the index of this room and remove it from the list
+            guard let roomIndex = self.rooms.index(of: room) else { return }
+            self.rooms.remove(at: roomIndex)
+            self.outlineView.removeItems(at: IndexSet(integer: roomIndex), inParent: Section.rooms, withAnimation: .slideLeft)
+        }
+    }
+    
+    // MARK: - Join Room Sheet
+    
+    @IBAction func joinRoom(_ sender: NSButton? = nil) {
+        
+        // Initialize the join room sheet, and become its delegate
+        let roomStoryboard = NSStoryboard(name: "RoomManagement", bundle: nil)
+        guard
+            let parentWindow = self.view.window,
+            let roomWindowController = roomStoryboard.instantiateController(withIdentifier: "JoinRoomWindowController") as? NSWindowController,
+            let roomWindow = roomWindowController.window,
+            let roomViewController = roomWindowController.contentViewController as? JoinRoomViewController
+            else { return }
+        roomViewController.delegate = self
+        
+        // Present the create room sheet
+        parentWindow.beginSheet(roomWindow, completionHandler: nil)
+        
+    }
+    
+    func joinRoomViewControllerDidCancel(_ sender: JoinRoomViewController) {
+        if let sheetWindow = sender.view.window {
+            self.view.window?.endSheet(sheetWindow)
+        }
+    }
+    
+    
+    func joinRoomViewControllerDidSubmit(_ sender: JoinRoomViewController) {
+        MatrixSessionManager.shared.session?.joinRoom(sender.roomIdOrAlias)  { response in
+            
+            switch response {
+            case .success(let room):
+                self.rooms.append(room)
+                guard let index = self.rooms.index(of: room) else { return }
+                self.outlineView.insertItems(at: IndexSet(integer: index), inParent: Section.rooms, withAnimation: .slideLeft)
+            case .failure: break
+            }
+            
+            if let sheetWindow = sender.view.window {
+                self.view.window?.endSheet(sheetWindow)
+            }
+        }
+    }
+    
 }

@@ -78,6 +78,7 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
     @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var messageTextField: NSTextField!
+    @IBOutlet weak var titleLabel: NSTextField!
     
     @IBOutlet weak var typingLabel: NSTextField!
     
@@ -102,6 +103,8 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
         
         tableView.tableColumns.first?.width = tableView.bounds.width
         tableView.rowHeight = 60;
+        
+        titleLabel.stringValue = ""
     }
     
     
@@ -120,9 +123,11 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
 
     func roomChanger(_ changer: SidebarController, setRoom room: MXRoom) {
         currentRoom = room
+        titleLabel.stringValue = room.state.name ?? room.state.canonicalAlias ?? "Unnamed Room"
         
         print("Listening to \(room.roomId)")
         sortedRoomMessages = []
+        tableView.reloadData()
         
         room.liveTimeline.resetPagination()
         _ = room.liveTimeline.listenToEvents([.roomMessage]) { (event, direction, roomState) in
