@@ -10,10 +10,6 @@
 		475674480C5CBA1568E879BA /* Pods_MatrixClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF77E14C4FD9A892D64EE2C0 /* Pods_MatrixClient.framework */; };
 		C60805811E54E6E9005387D3 /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60805801E54E6E9005387D3 /* CreateRoomViewController.swift */; };
 		C60805861E551211005387D3 /* JoinRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60805841E551211005387D3 /* JoinRoomViewController.swift */; };
-		C63A81F71E300B4A00F44A88 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F31E300B4A00F44A88 /* AFNetworking.framework */; };
-		C63A81F81E300B4A00F44A88 /* MatrixSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F41E300B4A00F44A88 /* MatrixSDK.framework */; };
-		C63A81F91E300B4A00F44A88 /* OLMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F51E300B4A00F44A88 /* OLMKit.framework */; };
-		C63A81FA1E300B4A00F44A88 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63A81F61E300B4A00F44A88 /* Realm.framework */; };
 		C64D49DA1E37D27A006D9B9B /* WindowWithDrawer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C64D49D91E37D27A006D9B9B /* WindowWithDrawer.storyboard */; };
 		C67872D61E31426F00E67E5D /* SidebarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67872D51E31426F00E67E5D /* SidebarController.swift */; };
 		C683F4981E54DA3600F8D19B /* RoomManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C683F4971E54DA3600F8D19B /* RoomManagement.storyboard */; };
@@ -29,7 +25,6 @@
 		C6E5BDF51E46BA8B001C24BD /* RoundedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5BDF41E46BA8B001C24BD /* RoundedColorView.swift */; };
 		C6E5BDF71E4798EB001C24BD /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5BDF61E4798EB001C24BD /* ImageProvider.swift */; };
 		C6E5BDF91E47D597001C24BD /* MatrixExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E5BDF81E47D597001C24BD /* MatrixExtensions.swift */; };
-		EB2E7D22D223D9A1DFD09819 /* Pods_MatrixClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A32E6126D9BC42DCF075D33 /* Pods_MatrixClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +39,6 @@
 
 /* Begin PBXFileReference section */
 		3A32E6126D9BC42DCF075D33 /* Pods_MatrixClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MatrixClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests.release.xcconfig"; sourceTree = "<group>"; };
-		B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7D8B8734A3DDE1AB2BD25EC /* Pods-MatrixClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClient/Pods-MatrixClient.debug.xcconfig"; sourceTree = "<group>"; };
 		B8A3B1364C5392BFC4DA538B /* Pods-MatrixClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatrixClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-MatrixClient/Pods-MatrixClient.release.xcconfig"; sourceTree = "<group>"; };
 		C60805801E54E6E9005387D3 /* CreateRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
@@ -81,10 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C63A81F71E300B4A00F44A88 /* AFNetworking.framework in Frameworks */,
-				C63A81F81E300B4A00F44A88 /* MatrixSDK.framework in Frameworks */,
-				C63A81F91E300B4A00F44A88 /* OLMKit.framework in Frameworks */,
-				C63A81FA1E300B4A00F44A88 /* Realm.framework in Frameworks */,
 				475674480C5CBA1568E879BA /* Pods_MatrixClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB2E7D22D223D9A1DFD09819 /* Pods_MatrixClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +93,6 @@
 			children = (
 				B7D8B8734A3DDE1AB2BD25EC /* Pods-MatrixClient.debug.xcconfig */,
 				B8A3B1364C5392BFC4DA538B /* Pods-MatrixClient.release.xcconfig */,
-				B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */,
-				484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -204,12 +190,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6CC8DE01E2A859F006C231F /* Build configuration list for PBXNativeTarget "MatrixClientTests" */;
 			buildPhases = (
-				A253536108EAFF9AB2521EC7 /* [CP] Check Pods Manifest.lock */,
 				C6CC8DD01E2A859F006C231F /* Sources */,
 				C6CC8DD11E2A859F006C231F /* Frameworks */,
 				C6CC8DD21E2A859F006C231F /* Resources */,
-				D46AF535DFA0861C8535AEF3 /* [CP] Embed Pods Frameworks */,
-				4248D3EF143F58A814081DE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,21 +269,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4248D3EF143F58A814081DE3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		666C399D95F8A2D732348891 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,36 +282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A253536108EAFF9AB2521EC7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D46AF535DFA0861C8535AEF3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MatrixClientTests/Pods-MatrixClientTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D54A2D317D83B60E84155270 /* [CP] Embed Pods Frameworks */ = {
@@ -551,7 +489,6 @@
 		};
 		C6CC8DE11E2A859F006C231F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B115CF027ACA509883586A67 /* Pods-MatrixClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -567,7 +504,6 @@
 		};
 		C6CC8DE21E2A859F006C231F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 484D3FB789704629E5C70483 /* Pods-MatrixClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;

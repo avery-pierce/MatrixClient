@@ -15,7 +15,7 @@
  */
 
 import Cocoa
-import MatrixSDK
+import SwiftMatrixSDK
 
 class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegate, MatrixSessionManagerDelegate {
 

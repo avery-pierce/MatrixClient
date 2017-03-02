@@ -15,7 +15,7 @@
  */
 
 import Foundation
-import MatrixSDK
+import SwiftMatrixSDK
 
 struct UnknownError : Error {
     var localizedDescription: String {

@@ -15,7 +15,7 @@
  */
 
 import Cocoa
-import MatrixSDK
+import SwiftMatrixSDK
 
 protocol LoginViewControllerDelegate {
     func loginViewController(_ sender: LoginViewController, didLoginWith credentials: MXCredentials)

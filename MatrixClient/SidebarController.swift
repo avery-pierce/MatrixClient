@@ -15,7 +15,7 @@
  */
 
 import Cocoa
-import MatrixSDK
+import SwiftMatrixSDK
 
 class RoomCellView : NSTableCellView {
     @IBOutlet weak var titleTextField: NSTextField!

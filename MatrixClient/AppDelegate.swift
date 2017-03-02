@@ -15,7 +15,7 @@
  */
 
 import Cocoa
-import MatrixSDK
+import SwiftMatrixSDK
 
 protocol MatrixSessionManagerDelegate {
     func matrixDidStart(_ session: MXSession)

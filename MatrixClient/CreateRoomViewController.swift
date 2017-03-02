@@ -15,7 +15,7 @@
  */
 
 import Cocoa
-import MatrixSDK
+import SwiftMatrixSDK
 
 protocol CreateRoomViewControllerDelegate : class {
     func createRoomViewControllerDidCancel(_ sender: CreateRoomViewController)

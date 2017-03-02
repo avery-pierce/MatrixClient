@@ -12,38 +12,32 @@ PODS:
   - AFNetworking/Reachability (3.1.0)
   - AFNetworking/Security (3.1.0)
   - AFNetworking/Serialization (3.1.0)
-  - MatrixSDK (0.7.7):
-    - AFNetworking (~> 3.1.0)
   - OLMKit (2.2.1):
     - OLMKit/olmc (= 2.2.1)
     - OLMKit/olmcpp (= 2.2.1)
   - OLMKit/olmc (2.2.1)
   - OLMKit/olmcpp (2.2.1)
-  - Realm (2.4.2):
-    - Realm/Headers (= 2.4.2)
-  - Realm/Headers (2.4.2)
+  - Realm (2.4.3):
+    - Realm/Headers (= 2.4.3)
+  - Realm/Headers (2.4.3)
+  - SwiftMatrixSDK (0.7.7):
+    - AFNetworking (~> 3.1.0)
 
 DEPENDENCIES:
-  - MatrixSDK (from `https://github.com/aapierce0/matrix-ios-sdk.git`, commit `282dcdd5de79f6ebd963222b8a2c2416b58ca3fd`)
   - OLMKit
   - Realm
+  - SwiftMatrixSDK (from `../matrix-ios-sdk`)
 
 EXTERNAL SOURCES:
-  MatrixSDK:
-    :commit: 282dcdd5de79f6ebd963222b8a2c2416b58ca3fd
-    :git: https://github.com/aapierce0/matrix-ios-sdk.git
-
-CHECKOUT OPTIONS:
-  MatrixSDK:
-    :commit: 282dcdd5de79f6ebd963222b8a2c2416b58ca3fd
-    :git: https://github.com/aapierce0/matrix-ios-sdk.git
+  SwiftMatrixSDK:
+    :path: "../matrix-ios-sdk"
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  MatrixSDK: 7bb286a463b7d95f5abd446a6fa2ab80fa9e9e98
   OLMKit: 72bbdad6c8d60b44a9dd160743d8cb85ddcf23a2
-  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
+  SwiftMatrixSDK: dd2ee0fb2024f913134ce37bacc617f6c5050896
 
-PODFILE CHECKSUM: e01f9c7f2b24f280423fdc0ffda729b4842444dc
+PODFILE CHECKSUM: 68c7f4c8f4f5b1942d110b88ed2880fef3041ecc
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

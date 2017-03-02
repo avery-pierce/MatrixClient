@@ -15,7 +15,7 @@
  */
 
 import Cocoa
-import MatrixSDK
+import SwiftMatrixSDK
 
 extension NSTextField {
     func height(forWidth width: CGFloat) -> CGFloat {

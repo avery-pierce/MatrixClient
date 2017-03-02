@@ -15,7 +15,7 @@
  */
 
 import Foundation
-import MatrixSDK
+import SwiftMatrixSDK
 
 extension URL {
     func resolvingMatrixUrl() -> URL {
