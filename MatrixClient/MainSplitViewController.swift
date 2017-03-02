@@ -17,9 +17,10 @@
 import Cocoa
 import SwiftMatrixSDK
 
-class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegate, MatrixSessionManagerDelegate {
+class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegate, MatrixSessionManagerDelegate, ConnectionLoadingViewControllerDelegate {
 
     var loginWindow: NSWindow?
+    var loadingWindow: NSWindow?
     
     
     override func viewDidLoad() {
@@ -34,6 +35,7 @@ class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegat
     func presentLoginSheetIfNeeded() {
         
         if MatrixSessionManager.shared.state == .notStarted {
+            self.showLoadingWindow()
             MatrixSessionManager.shared.start()
         } else if MatrixSessionManager.shared.state == .needsCredentials,
             let loginWindowController = self.storyboard?.instantiateController(withIdentifier: "LoginSheet") as? NSWindowController,
@@ -42,6 +44,8 @@ class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegat
             let mainWindow = self.view.window {
             
             loginViewController.delegate = self
+            
+            loginWindow.preventsApplicationTerminationWhenModal = false
             
             mainWindow.beginSheet(loginWindow, completionHandler: nil)
             self.loginWindow = loginWindow
@@ -54,6 +58,7 @@ class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegat
         view.window?.endSheet(loginWindow)
         
         MatrixSessionManager.shared.credentials = credentials
+        self.showLoadingWindow()
         MatrixSessionManager.shared.start()
     }
     
@@ -61,8 +66,62 @@ class MainSplitViewController: NSSplitViewController, LoginViewControllerDelegat
         MatrixSessionManager.shared.logout()
     }
     
-    func matrixDidStart(_ session: MXSession) {}
+    func matrixDidStart(_ session: MXSession) {
+        self.dismissLoadingWindow()
+    }
     func matrixDidLogout() {
         self.presentLoginSheetIfNeeded()
+    }
+    
+    
+    
+    func showLoadingWindow() {
+        guard
+            let windowController = self.storyboard?.instantiateController(withIdentifier: "ConnectionLoadingWindowController") as? NSWindowController,
+            let connectionLoadingViewController = windowController.contentViewController as? ConnectionLoadingViewController,
+            let window = windowController.window
+            else { return }
+        
+        connectionLoadingViewController.urlAddress = MatrixSessionManager.shared.credentials?.homeServer ?? "(unknown)"
+        connectionLoadingViewController.delegate = self
+        loadingWindow = window
+        self.view.window?.beginSheet(window, completionHandler: nil)
+    }
+    
+    func dismissLoadingWindow() {
+        guard let loadingWindow = self.loadingWindow else { return }
+        self.view.window?.endSheet(loadingWindow)
+        self.loadingWindow = nil
+    }
+    
+    func connectionLoadingViewControllerDidClickCancel(_ sender: ConnectionLoadingViewController) {
+        MatrixSessionManager.shared.logout()
+        dismissLoadingWindow()
+        presentLoginSheetIfNeeded()
+    }
+}
+
+
+protocol ConnectionLoadingViewControllerDelegate : class {
+    func connectionLoadingViewControllerDidClickCancel(_ sender: ConnectionLoadingViewController)
+}
+
+class ConnectionLoadingViewController : NSViewController {
+    weak var delegate: ConnectionLoadingViewControllerDelegate?
+    
+    var urlAddress: String = "" {
+        didSet { urlAddressLabel?.stringValue = urlAddress }
+    }
+    @IBOutlet weak var urlAddressLabel: NSTextField!
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        urlAddressLabel.stringValue = urlAddress
+        progressIndicator.startAnimation(nil)
+    }
+    
+    @IBAction func cancel(_ sender: NSButton! = nil) {
+        delegate?.connectionLoadingViewControllerDidClickCancel(self)
     }
 }

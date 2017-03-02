@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="pmQ-Hq-lWY">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="pmQ-Hq-lWY">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -91,8 +91,21 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iIt-Yr-Uxx">
+                                <rect key="frame" x="306" y="13" width="66" height="32"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QIJ-1n-3eA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="terminate:" target="Dvl-BA-rvV" id="3My-De-LD5"/>
+                                </connections>
+                            </button>
                             <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="lWp-h4-yzy">
-                                <rect key="frame" x="326" y="15" width="32" height="32"/>
+                                <rect key="frame" x="272" y="15" width="32" height="32"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
@@ -104,8 +117,9 @@ DQ
                             <constraint firstItem="eZ5-ep-RoB" firstAttribute="trailing" secondItem="jDE-gh-k1u" secondAttribute="trailing" id="CT3-Cf-oKO"/>
                             <constraint firstItem="lWp-h4-yzy" firstAttribute="centerY" secondItem="PeI-AF-Fw2" secondAttribute="centerY" id="Hgm-Vr-Vi2"/>
                             <constraint firstAttribute="bottom" secondItem="PeI-AF-Fw2" secondAttribute="bottom" constant="20" id="I9a-r5-8Gy"/>
-                            <constraint firstItem="PeI-AF-Fw2" firstAttribute="leading" secondItem="lWp-h4-yzy" secondAttribute="trailing" constant="20" id="Sl6-CF-txY"/>
+                            <constraint firstItem="iIt-Yr-Uxx" firstAttribute="centerY" secondItem="PeI-AF-Fw2" secondAttribute="centerY" id="KQq-TN-JlS"/>
                             <constraint firstItem="eIw-pm-SXc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WVi-ff-TCC" secondAttribute="leading" constant="40" id="UNB-Pf-Njl"/>
+                            <constraint firstItem="PeI-AF-Fw2" firstAttribute="leading" secondItem="iIt-Yr-Uxx" secondAttribute="trailing" constant="12" id="Uad-lE-fG9"/>
                             <constraint firstItem="eZ5-ep-RoB" firstAttribute="leading" secondItem="jDE-gh-k1u" secondAttribute="leading" id="WRD-8i-RfD"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eIw-pm-SXc" secondAttribute="trailing" constant="40" id="b77-WT-Lbg"/>
                             <constraint firstItem="TsX-zv-bLG" firstAttribute="top" secondItem="eIw-pm-SXc" secondAttribute="bottom" constant="30" id="c2r-6m-fpP"/>
@@ -114,6 +128,7 @@ DQ
                             <constraint firstItem="z9t-Lr-Zwc" firstAttribute="leading" secondItem="eIw-pm-SXc" secondAttribute="leading" id="lkC-Ff-4xV"/>
                             <constraint firstItem="eIw-pm-SXc" firstAttribute="top" secondItem="z9t-Lr-Zwc" secondAttribute="bottom" constant="8" id="msn-Kh-X8M"/>
                             <constraint firstItem="jDE-gh-k1u" firstAttribute="top" secondItem="TsX-zv-bLG" secondAttribute="bottom" constant="8" id="p5v-S3-Qqr"/>
+                            <constraint firstItem="iIt-Yr-Uxx" firstAttribute="leading" secondItem="lWp-h4-yzy" secondAttribute="trailing" constant="8" id="re4-fk-BqG"/>
                             <constraint firstItem="PeI-AF-Fw2" firstAttribute="trailing" secondItem="eZ5-ep-RoB" secondAttribute="trailing" id="zf0-9B-I0y"/>
                         </constraints>
                     </view>

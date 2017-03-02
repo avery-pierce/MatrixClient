@@ -1084,6 +1084,90 @@
             </objects>
             <point key="canvasLocation" x="698" y="445"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="Rhd-4A-uVk">
+            <objects>
+                <windowController storyboardIdentifier="ConnectionLoadingWindowController" id="Hgb-Cr-1qu" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="IJE-vF-qCI">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="461" width="295" height="146"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                    </window>
+                    <connections>
+                        <segue destination="Bii-DC-sKa" kind="relationship" relationship="window.shadowedContentViewController" id="qkL-Ma-NGh"/>
+                    </connections>
+                </windowController>
+                <customObject id="fSW-s1-W1N" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="234"/>
+        </scene>
+        <!--Connection Loading View Controller-->
+        <scene sceneID="dgv-1E-zr8">
+            <objects>
+                <viewController id="Bii-DC-sKa" customClass="ConnectionLoadingViewController" customModule="MatrixClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="WA3-yE-kFb">
+                        <rect key="frame" x="0.0" y="0.0" width="260" height="145"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="1SP-hI-O49">
+                                <rect key="frame" x="114" y="93" width="32" height="32"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31o-PN-jMd">
+                                <rect key="frame" x="79" y="68" width="101" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Connecting to..." id="IeO-n0-CBT">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pz-Gz-fz6">
+                                <rect key="frame" x="72" y="49" width="117" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="https://matrix.org" id="dh8-Xp-Gm1">
+                                    <font key="font" metaFont="systemSemibold" size="13"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mXK-oQ-LuG">
+                                <rect key="frame" x="89" y="13" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TJI-Q0-06w">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancel:" target="Bii-DC-sKa" id="BVn-Xx-nVC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mXK-oQ-LuG" secondAttribute="bottom" constant="20" id="0Qg-iB-Wyo"/>
+                            <constraint firstItem="1SP-hI-O49" firstAttribute="centerX" secondItem="WA3-yE-kFb" secondAttribute="centerX" id="4G5-Gb-57c"/>
+                            <constraint firstItem="mXK-oQ-LuG" firstAttribute="top" secondItem="9Pz-Gz-fz6" secondAttribute="bottom" constant="8" id="LzX-Jm-3qR"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Pz-Gz-fz6" secondAttribute="trailing" constant="8" id="NAv-I1-HKu"/>
+                            <constraint firstItem="9Pz-Gz-fz6" firstAttribute="top" secondItem="31o-PN-jMd" secondAttribute="bottom" constant="2" id="Nl5-t4-vgP"/>
+                            <constraint firstItem="31o-PN-jMd" firstAttribute="top" secondItem="1SP-hI-O49" secondAttribute="bottom" constant="8" id="Xx2-Yu-60d"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mXK-oQ-LuG" secondAttribute="trailing" constant="20" symbolic="YES" id="bSC-Lz-oM9"/>
+                            <constraint firstItem="9Pz-Gz-fz6" firstAttribute="centerX" secondItem="WA3-yE-kFb" secondAttribute="centerX" id="dOi-kh-Gpe"/>
+                            <constraint firstItem="mXK-oQ-LuG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WA3-yE-kFb" secondAttribute="leading" constant="20" symbolic="YES" id="fD0-RU-B4i"/>
+                            <constraint firstItem="1SP-hI-O49" firstAttribute="top" secondItem="WA3-yE-kFb" secondAttribute="top" constant="20" id="i5P-5t-eIa"/>
+                            <constraint firstItem="9Pz-Gz-fz6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WA3-yE-kFb" secondAttribute="leading" constant="8" id="oHt-Se-3Zg"/>
+                            <constraint firstItem="mXK-oQ-LuG" firstAttribute="centerX" secondItem="WA3-yE-kFb" secondAttribute="centerX" id="pUD-vn-9yM"/>
+                            <constraint firstItem="31o-PN-jMd" firstAttribute="centerX" secondItem="WA3-yE-kFb" secondAttribute="centerX" id="y5t-uM-mZo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressIndicator" destination="1SP-hI-O49" id="RuI-SE-csT"/>
+                        <outlet property="urlAddressLabel" destination="9Pz-Gz-fz6" id="MS9-1z-Wke"/>
+                    </connections>
+                </viewController>
+                <customObject id="wid-6w-LAs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1521" y="234"/>
+        </scene>
         <!--Sidebar Controller-->
         <scene sceneID="Pup-UV-QCr">
             <objects>

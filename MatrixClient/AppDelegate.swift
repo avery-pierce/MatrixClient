@@ -93,8 +93,8 @@ class MatrixSessionManager {
                 guard response.isSuccess else { return }
                 
                 DispatchQueue.main.async {
-                    self.delegate?.matrixDidStart(self.session!);
                     self.state = .started
+                    self.delegate?.matrixDidStart(self.session!);
                 }
             }
         }
@@ -102,15 +102,12 @@ class MatrixSessionManager {
     
     func logout() {
         
-        print("Logging out!")
+        UserDefaults.standard.removeObject(forKey: MatrixSessionManager.credentialsDictionaryKey)
+        UserDefaults.standard.synchronize()
+        self.credentials = nil
+        self.state = .needsCredentials
         
         session?.logout { _ in
-            UserDefaults.standard.removeObject(forKey: MatrixSessionManager.credentialsDictionaryKey)
-            UserDefaults.standard.synchronize()
-            
-            self.credentials = nil
-            self.state = .needsCredentials
-            
             self.delegate?.matrixDidLogout()
         }
     }
@@ -127,6 +124,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, MatrixSessionManagerDelegate
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return false
     }
 
     
