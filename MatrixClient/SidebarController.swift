@@ -152,7 +152,6 @@ class SidebarController: NSViewController, NSOutlineViewDataSource, NSOutlineVie
     
     
     
-    
     // MARK: - Create Room Sheet
     
     @IBAction func createRoom(_ sender: NSButton? = nil) {

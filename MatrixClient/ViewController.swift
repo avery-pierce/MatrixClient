@@ -88,9 +88,8 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
     @IBOutlet weak var messageTextField: NSTextField!
     @IBOutlet weak var titleLabel: NSTextField!
     
-    @IBOutlet weak var typingLabel: NSTextField!
-    
     var currentRoom: MXRoom?
+    var imageProvider: ImageProvider = ImageProvider()
     
     private var sortedRoomMessages = [MatrixMessage]()
     var roomMessages: [MatrixMessage] {
@@ -150,10 +149,14 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
             
             let typingUsers = room.typingUsers ?? []
             if typingUsers.count > 0 {
-                self.typingLabel.stringValue = "Typing: \(typingUsers.joined(separator: ", "))"
+                
             } else {
-                self.typingLabel.stringValue = ""
+                
             }
+        }
+        
+        _ = room.liveTimeline.listenToEvents { (event, direction, roomState) in
+            print(event)
         }
         
         room.liveTimeline.paginate(10, direction: .backwards, onlyFromStore: false) { response in
@@ -260,7 +263,7 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
             let avatarUrlString = senderUser.avatarUrl,
             let avatarUrl = URL(string: avatarUrlString)?.resolvingMatrixUrl() {
             
-            ImageProvider().image(for: avatarUrl) { response in
+            imageProvider.image(for: avatarUrl) { response in
                 switch response {
                 case .success(let image):
                     cell?.avatarImageView?.image = image
