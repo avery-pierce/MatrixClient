@@ -36,6 +36,10 @@ class ImageProvider {
         return newSemaphore
     }
     
+    func cachedImage(for url: URL) -> NSImage? {
+        return cache[url]
+    }
+    
     func image(for url: URL, completion: @escaping (_ response: MXResponse<NSImage>) -> Void) {
         
         // Get the semaphore for this url

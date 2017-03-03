@@ -81,11 +81,12 @@ class MessageCellView : NSTableCellView {
     }
 }
 
-class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManagerDelegate, NSTableViewDelegate, NSTableViewDataSource {
+class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManagerDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextViewDelegate {
     
     @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var messageTextField: NSTextField!
+    @IBOutlet weak var messageTextView: NSTextView!
+    @IBOutlet weak var messageTextViewVerticalSizeConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: NSTextField!
     
     var currentRoom: MXRoom?
@@ -112,6 +113,13 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
         tableView.rowHeight = 60;
         
         titleLabel.stringValue = ""
+        
+        reloadContentInsets()
+    }
+    
+    func reloadContentInsets() {
+        tableView.enclosingScrollView?.contentInsets.bottom = messageTextViewVerticalSizeConstraint.constant + 16
+        tableView.enclosingScrollView?.contentInsets.top = 60
     }
     
     
@@ -162,6 +170,10 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
         room.liveTimeline.paginate(10, direction: .backwards, onlyFromStore: false) { response in
             
         }
+        
+        room.state.members.forEach { (member) in
+            print(member.displayname ?? member.userId)
+        }
     }
 
     override var representedObject: Any? {
@@ -174,9 +186,9 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
     
     
     
-    @IBAction func submitMessage(_ sender: NSTextField) {
-        let stringValue = sender.stringValue
-        sender.stringValue = ""
+    func submitMessage() {
+        guard let stringValue = messageTextView.string else { return }
+        messageTextView.textStorage?.mutableString.setString("")
         
         guard let room = currentRoom else { return }
         room.mxSession.matrixRestClient.sendTextMessage(toRoom: room.roomId, text: stringValue) { (response) in
@@ -263,15 +275,22 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
             let avatarUrlString = senderUser.avatarUrl,
             let avatarUrl = URL(string: avatarUrlString)?.resolvingMatrixUrl() {
             
-            imageProvider.image(for: avatarUrl) { response in
-                switch response {
-                case .success(let image):
-                    cell?.avatarImageView?.image = image
-                default: break
+            if let image = imageProvider.cachedImage(for: avatarUrl) {
+                cell?.avatarImageView?.image = image
+            } else {
+                imageProvider.image(for: avatarUrl) { response in
+                    switch response {
+                    case .success(let image):
+                        
+                        // The cell might have moved. Make sure we're accessing the right cell.
+                        let cell = tableView.view(atColumn: 0, row: row, makeIfNecessary: false) as? MessageCellView
+                        cell?.avatarImageView?.image = image
+                        
+                    default: break
+                    }
                 }
             }
         }
-        
         
         return cell
     }
@@ -296,5 +315,31 @@ class ViewController: NSViewController, RoomChangedDelegate, MatrixSessionManage
         return cellHeight
     }
     
+    
+    
+    
+    
+    
+    func textDidEndEditing(_ notification: Notification) {
+        Swift.print("Did End editing: \(notification)")
+        // Check to see if this was a return key press
+        if (notification.userInfo?["NSTextMovement"] as? Int) == NSReturnTextMovement {
+            submitMessage()
+            messageTextView.window?.makeFirstResponder(messageTextView)
+        }
+    }
+    
+    func textDidChange(_ notification: Notification) {
+        
+        guard
+            let textContainer = messageTextView.textContainer,
+            let layoutManager = messageTextView.layoutManager
+            else { return }
+        
+        let height = layoutManager.usedRect(for: textContainer).height
+        messageTextViewVerticalSizeConstraint.constant = height
+        reloadContentInsets()
+        self.view.layout()
+    }
 }
 
