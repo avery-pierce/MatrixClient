@@ -20,30 +20,30 @@ PODS:
   - Realm (2.4.4):
     - Realm/Headers (= 2.4.4)
   - Realm/Headers (2.4.4)
-  - SwiftMatrixSDK (0.7.7):
+  - SwiftMatrixSDK (0.7.9):
     - AFNetworking (~> 3.1.0)
 
 DEPENDENCIES:
   - OLMKit
   - Realm
-  - SwiftMatrixSDK (from `https://github.com/aapierce0/matrix-ios-sdk.git`, branch `swiftyAPI`)
+  - SwiftMatrixSDK (from `https://github.com/aapierce0/matrix-ios-sdk.git`, commit `ae745701478220480a652ce1723c6c40b1c8d769`)
 
 EXTERNAL SOURCES:
   SwiftMatrixSDK:
-    :branch: swiftyAPI
+    :commit: ae745701478220480a652ce1723c6c40b1c8d769
     :git: https://github.com/aapierce0/matrix-ios-sdk.git
 
 CHECKOUT OPTIONS:
   SwiftMatrixSDK:
-    :commit: f7c9de0839a46129d3e233e0bbc331713c1fa1d7
+    :commit: ae745701478220480a652ce1723c6c40b1c8d769
     :git: https://github.com/aapierce0/matrix-ios-sdk.git
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   OLMKit: b9d8c0ffee9ea8c45bc0aaa9afb47f93fba7efbd
   Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
-  SwiftMatrixSDK: dd2ee0fb2024f913134ce37bacc617f6c5050896
+  SwiftMatrixSDK: 2eb7cf817445f02f5ab5bc056813d2b4a7652f75
 
-PODFILE CHECKSUM: 391d5976832b5df7e88a4b1c0ae6d743650e5c1d
+PODFILE CHECKSUM: fe48fff2ec41463c2da90c044e97fdf3c2ce410e
 
 COCOAPODS: 1.2.0
